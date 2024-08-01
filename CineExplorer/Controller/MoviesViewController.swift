@@ -13,24 +13,42 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var storedMovies: [Movie] = []
     let manager = MovieServiceManager()
     @IBOutlet weak var moviesTable: UITableView!
-    
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
-           super.viewDidLoad()
-           
-           moviesTable.dataSource = self
-           moviesTable.delegate = self
-           
-           manager.fetchTrendingMovies { movies in
-               if let movies = movies {
-                   self.storedMovies = movies
-                   self.moviesTable.reloadData()
-               } else {
-                   print("Failed to fetch movies or no movies available.")
-               }
-           }
+       super.viewDidLoad()
+       
+       moviesTable.dataSource = self
+       moviesTable.delegate = self
+        
+
+        refreshControl.tintColor = UIColor.white // Change this to your desired color
+        refreshControl.addTarget(self, action: #selector(refreshMoviesData(_:)), for: .valueChanged)
+        moviesTable.refreshControl = refreshControl
+        
+        fetchMovies(moviePage: 1)
+
        }
 
+        @objc private func refreshMoviesData(_ sender: Any) {
+            let randomPage = Int.random(in: 1...100)
+            fetchMovies(moviePage: randomPage)
+            self.refreshControl.endRefreshing()
+        }
+    
+    private func fetchMovies(moviePage: Int) {
+            manager.fetchTrendingMovies(page: moviePage) { movies in
+                DispatchQueue.main.async {
+                    if let movies = movies {
+                        self.storedMovies = movies
+                        self.moviesTable.reloadData()
+                    } else {
+                        print("Failed to fetch movies or no movies available.")
+                    }
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
        // UITableViewDataSource methods
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            return storedMovies.count

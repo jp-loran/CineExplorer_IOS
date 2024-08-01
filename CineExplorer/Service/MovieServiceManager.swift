@@ -11,11 +11,11 @@ import Alamofire
 class MovieServiceManager {
     private var movies: [Movie] = []
 
-    func fetchTrendingMovies(completion: @escaping ([Movie]?) -> Void) {
-        let url =  "\(Constants.movieApiUrl)trending/movie/day"
+    func fetchTrendingMovies(page: Int, completion: @escaping ([Movie]?) -> Void) {
+        let url =  "\(Constants.movieApiUrl)trending/movie/day?page=\(page)"
         let headers: HTTPHeaders = [
             "accept": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyODJhYzVjOWI2NDY3OGNiZDJmNDBjZWEyNjUyYWU4OCIsInN1YiI6IjY2NDJjMjAyZTg2YmQzMTBiYTE4MmM0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.O8k8e_bcLthkotp-cQ66IMYZ24fvZrTePdGUqABTEHs"
+            "Authorization": MovieApiKey.movieApiKey
         ]
 
         AF.request(url, headers: headers)

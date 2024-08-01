@@ -31,6 +31,8 @@
 		F8A7D9782C46259000919124 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F8A7D9772C46259000919124 /* SDWebImage */; };
 		F8A7D97A2C4625A300919124 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F8A7D9792C4625A300919124 /* Alamofire */; };
 		F8A7D97C2C4625BB00919124 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F8A7D97B2C4625BB00919124 /* FirebaseAuth */; };
+		F8C995BB2C5C404900CE1BFB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F8C995BA2C5C404900CE1BFB /* FirebaseStorage */; };
+		F8C995BD2C5C4C8600CE1BFB /* MovieApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C995BC2C5C4C8600CE1BFB /* MovieApiKey.swift */; };
 		F8CF5FE92BF303910023DAF0 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF5FE82BF303910023DAF0 /* MoviesViewController.swift */; };
 		F8CF5FEC2BF306DC0023DAF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF5FEB2BF306DC0023DAF0 /* Constants.swift */; };
 		F8CF5FEF2BF3078A0023DAF0 /* MovieServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CF5FEE2BF3078A0023DAF0 /* MovieServiceManager.swift */; };
@@ -64,6 +66,7 @@
 		F87E819C2C06CD5100C2B723 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		F89E58862C0809D600EA5470 /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		F8A7D9682C4617D100919124 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8C995BC2C5C4C8600CE1BFB /* MovieApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiKey.swift; sourceTree = "<group>"; };
 		F8CF5FE82BF303910023DAF0 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		F8CF5FEB2BF306DC0023DAF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F8CF5FEE2BF3078A0023DAF0 /* MovieServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceManager.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 				F8A7D97A2C4625A300919124 /* Alamofire in Frameworks */,
 				F85A9B482C51EDE0004392F5 /* FirebaseFirestore in Frameworks */,
 				F85A9B462C51EDD5004392F5 /* FirebaseFirestoreSwift in Frameworks */,
+				F8C995BB2C5C404900CE1BFB /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				F8CF5FEB2BF306DC0023DAF0 /* Constants.swift */,
+				F8C995BC2C5C4C8600CE1BFB /* MovieApiKey.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				F8A7D97B2C4625BB00919124 /* FirebaseAuth */,
 				F85A9B452C51EDD5004392F5 /* FirebaseFirestoreSwift */,
 				F85A9B472C51EDE0004392F5 /* FirebaseFirestore */,
+				F8C995BA2C5C404900CE1BFB /* FirebaseStorage */,
 			);
 			productName = CineExplorer;
 			productReference = F827C6CE2BEF2981006482B6 /* CineExplorer.app */;
@@ -306,6 +312,7 @@
 				F827C6F42BEF46A8006482B6 /* Helpers.swift in Sources */,
 				F82D54392C42362B00211FDF /* UserViewController.swift in Sources */,
 				F827C6D42BEF2981006482B6 /* SceneDelegate.swift in Sources */,
+				F8C995BD2C5C4C8600CE1BFB /* MovieApiKey.swift in Sources */,
 				F8CF5FEC2BF306DC0023DAF0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +593,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F8A7D96A2C46186A00919124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		F8C995BA2C5C404900CE1BFB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8A7D96A2C46186A00919124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

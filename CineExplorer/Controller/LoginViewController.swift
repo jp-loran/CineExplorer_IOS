@@ -19,6 +19,12 @@ class LoginViewController: UIViewController {
     var storedMovies: [Movie] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+           view.endEditing(true)
     }
     
     @IBAction func loginAction(_ sender: Any) {
